@@ -1,24 +1,39 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { View, Text, Button, TextInput } from "react-native";
+import { Text, SafeAreaView } from "react-native";
 import { Routes } from "../../router/router.types";
 import { authStyles } from "./authentication.styles";
-import { useThemeConsumer } from "../../utils/theme/theme.consumer";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../utils/theme/theme.provider";
+import { TextField } from "../../components/textfield/textfield.component";
+import { Button } from "../../components/button/button.component";
 
 type LoginProps = NativeStackScreenProps<Routes, "Login">;
 export const Login = ({ navigation }: LoginProps) => {
-  const {
-    theme: { colors, typography },
-    toggleThemeSchema,
-  } = useThemeConsumer();
+  const { theme, toggleThemeSchema } = useContext(ThemeContext);
+  const styles = authStyles(theme);
 
-  const styles = authStyles(colors);
-  const [text, onChangeText] = useState("Useless Text");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onLogin = () => {
+    console.log(email, password);
+  };
 
   return (
-    <View style={styles.authContainer}>
-      <Text style={typography.title}>Sign in</Text>
-      <TextInput onChangeText={onChangeText} value={text} />
-    </View>
+    <SafeAreaView style={styles.authContainer}>
+      <Text style={styles.title} onPress={() => toggleThemeSchema()}>
+        Sign in
+      </Text>
+      <TextField placeholder="Email" onChangeText={setEmail} />
+      <TextField
+        placeholder="Password"
+        onChangeText={setPassword}
+        hidden={true}
+      />
+      <Button title="Login" onPress={onLogin} />
+      <Text style={styles.link} onPress={() => navigation.navigate("Register")}>
+        No accout? Register here!
+      </Text>
+    </SafeAreaView>
   );
 };

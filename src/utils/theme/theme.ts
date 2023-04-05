@@ -19,6 +19,6 @@ export const darkTheme = {
 export type AppTheme = {
   dark: boolean;
   colors: ThemeColors;
-  spacing: (index: SpacerIndex) => void;
+  spacing: (index: SpacerIndex) => number;
   typography: TypographyProps;
 };

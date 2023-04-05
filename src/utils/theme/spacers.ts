@@ -10,6 +10,6 @@ const spaces = {
   6: 96,
 };
 
-export const spacing = (index: SpacerIndex) => {
+export const spacing = (index: SpacerIndex): number => {
   return spaces[index];
 };

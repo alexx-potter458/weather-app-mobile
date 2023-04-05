@@ -1,7 +1,7 @@
 import { TextStyle } from "react-native";
 import { ThemeColors } from "./colors";
 
-export type TitleVariants = "title" | "subtitle" | "normalText";
+export type TitleVariants = "title" | "subtitle" | "normalText" | "buttonText";
 
 export type TypographyProps = { [key in TitleVariants]: TextStyle };
 
@@ -16,13 +16,17 @@ const typography: TypographyProps = {
   },
   normalText: {
     fontSize: 12,
-    fontWeight: "300",
+    fontWeight: "400",
+  },
+  buttonText: {
+    fontSize: 14,
+    fontWeight: "400",
   },
 };
 
 export const typographyWithColor = (colors: ThemeColors) => ({
   title: {
-    color: colors.text,
+    color: colors.primary,
     ...typography.title,
   },
   subtitle: {
@@ -32,5 +36,9 @@ export const typographyWithColor = (colors: ThemeColors) => ({
   normalText: {
     color: colors.text,
     ...typography.normalText,
+  },
+  buttonText: {
+    color: colors.buttonText,
+    ...typography.buttonText,
   },
 });

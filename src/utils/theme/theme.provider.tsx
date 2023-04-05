@@ -5,11 +5,11 @@ type ThemeSchemaProps = "light" | "dark";
 export const ThemeContext = createContext({
   theme: lightTheme,
   toggleThemeSchema: () => {},
-  activeScheme: "light",
+  activeScheme: "dark",
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [themeSchema, setThemeSchema] = useState<ThemeSchemaProps>("light");
+  const [themeSchema, setThemeSchema] = useState<ThemeSchemaProps>("dark");
   const activeTheme = themeSchema === "light" ? lightTheme : darkTheme;
 
   const toggleThemeSchema = useCallback(() => {
