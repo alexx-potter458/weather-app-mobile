@@ -11,6 +11,5 @@ export const textFieldStyle = (theme: AppTheme) =>
       borderRadius: 22,
       paddingVertical: theme.spacing(1),
       paddingHorizontal: theme.spacing(3),
-      marginTop: theme.spacing(3),
     },
   });

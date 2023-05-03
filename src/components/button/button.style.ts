@@ -9,8 +9,6 @@ export const buttonStyle = (theme: AppTheme) =>
       borderColor: theme.colors.button,
       borderRadius: 22,
       paddingVertical: theme.spacing(2),
-      paddingHorizontal: theme.spacing(3),
-      marginTop: theme.spacing(4),
       backgroundColor: theme.colors.button,
     },
     textStyle: {

@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Appearance, StatusBar } from "react-native";
 import { Authentication } from "./authentication";
 import { ThemeContext } from "../utils/theme/theme.provider";
+import { Main } from "./main";
 
 export const Router = () => {
   const { activeScheme, toggleThemeSchema, theme } = useContext(ThemeContext);
@@ -19,7 +20,8 @@ export const Router = () => {
         barStyle={theme.dark ? "light-content" : "dark-content"}
         backgroundColor={theme.colors.background}
       />
-      <Authentication />
+      {/* <Authentication /> */}
+      <Main />
     </NavigationContainer>
   );
 };
