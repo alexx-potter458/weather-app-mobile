@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { HorizontalSpace } from "../../components/horizontal-space/horizontal-space.component";
 import { Routes } from "../../router/router.types";
-import { Text, SafeAreaView, View } from "react-native";
+import { Text, View } from "react-native";
 import { useContext } from "react";
 import { ThemeContext } from "../../utils/theme/theme.provider";
 import { profileStyle } from "./profile.styles";

@@ -15,8 +15,8 @@ export const Main = () => {
 
   return (
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={({ route }) => ({
-        initialRouteName: "Dashboard",
         tabBarIcon: ({ color, size }) => {
           let iconName: any;
 
