@@ -6,17 +6,16 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { ThemeContext } from "../utils/theme/theme.provider";
 import { useContext } from "react";
 import { Locations } from "../screens/locations/locations.screen";
-import { SafeAreaView } from "react-native";
 
 const Tab = createBottomTabNavigator<Routes>();
 
 export const Main = () => {
   const { theme } = useContext(ThemeContext);
-
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({ route }) => ({
+        unmountOnBlur: true,
         tabBarIcon: ({ color, size }) => {
           let iconName: any;
 
