@@ -18,6 +18,7 @@ export default {
       supportsTablet: true,
     },
     android: {
+      package: "com.pottertech.weather_app_mobile",
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#ffffff",
@@ -34,6 +35,9 @@ export default {
       messagingSenderId: process.env.MESSAGING_SENDER_ID,
       appId: process.env.APP_ID,
       weatherApi: process.env.WEATHER_API_ID,
+      eas: {
+        projectId: "f4a7849b-a018-431b-8f44-70a4fb3d210d",
+      },
     },
     plugins: [],
   },
