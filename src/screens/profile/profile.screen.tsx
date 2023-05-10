@@ -30,9 +30,11 @@ export const Profile = ({ navigation }: ProfileProps) => {
       <HorizontalSpace />
       <ProfilePicture />
       <HorizontalSpace size={3} />
-      <Text style={styles.emailText}>Your email</Text>
-      <HorizontalSpace />
-      <Text style={styles.usernameText}>{email}</Text>
+      <View style={styles.userContainer}>
+        <Text style={styles.emailText}>Your email</Text>
+        <HorizontalSpace />
+        <Text style={styles.usernameText}>{email}</Text>
+      </View>
       <View style={styles.emptySpace} />
       <Button title="Log out" onPress={onLogout} />
       <HorizontalSpace size={6} />

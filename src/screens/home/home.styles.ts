@@ -1,6 +1,11 @@
 import { StyleSheet } from "react-native";
 import { AppTheme } from "../../utils/theme/theme";
 
+export const hex2rgba = (hex: any, alpha = 1) => {
+  const [r, g, b] = hex.match(/\w\w/g).map((x: string) => parseInt(x, 16));
+  return `rgba(${r},${g},${b},${alpha})`;
+};
+
 export const homeStyles = (theme: AppTheme) =>
   StyleSheet.create({
     container: {
@@ -57,10 +62,10 @@ export const homeStyles = (theme: AppTheme) =>
     },
 
     boxDetails: {
-      backgroundColor: theme.colors.card,
+      backgroundColor: hex2rgba(theme.colors.card, 0.6),
       minHeight: 110,
       flex: 1,
-      borderRadius: 22,
+      borderRadius: 16,
       borderColor: theme.colors.inactiveIcon,
       borderWidth: 2,
       paddingVertical: 8,

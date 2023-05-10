@@ -15,11 +15,10 @@ export const profileStyle = (theme: AppTheme) =>
     },
     usernameText: {
       ...theme.typography.subtitle,
-      textAlign: "center",
     },
     emailText: {
       ...theme.typography.normalText,
-      textAlign: "center",
+      color: theme.colors.secondary,
     },
     pictureContainer: {
       width: 140,
@@ -28,6 +27,8 @@ export const profileStyle = (theme: AppTheme) =>
       marginRight: "auto",
       padding: 16,
       backgroundColor: theme.colors.card,
+      borderWidth: 2,
+      borderColor: theme.colors.inactiveIcon,
       borderRadius: 100,
     },
     profilePicture: {
@@ -35,6 +36,14 @@ export const profileStyle = (theme: AppTheme) =>
       height: "90%",
       marginLeft: "auto",
       marginRight: "auto",
+    },
+    userContainer: {
+      backgroundColor: theme.colors.card,
+      borderWidth: 2,
+      borderColor: theme.colors.inactiveIcon,
+      borderRadius: 22,
+      paddingVertical: 12,
+      paddingHorizontal: 16,
     },
     emptySpace: {
       display: "flex",
