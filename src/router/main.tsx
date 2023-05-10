@@ -2,47 +2,72 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Routes } from "./router.types";
 import { Home } from "../screens/home/home.screen";
 import { Profile } from "../screens/profile/profile.screen";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { ThemeContext } from "../utils/theme/theme.provider";
 import { useContext } from "react";
 import { Locations } from "../screens/locations/locations.screen";
+import { Image, StyleSheet } from "react-native";
 
 const Tab = createBottomTabNavigator<Routes>();
 
 export const Main = () => {
   const { theme } = useContext(ThemeContext);
+
+  const iconStyle = StyleSheet.create({
+    icon: {
+      height: 24,
+      width: 24,
+      objectFit: "contain",
+    },
+  });
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({ route }) => ({
         unmountOnBlur: true,
         tabBarIcon: ({ color, size }) => {
-          let iconName: any;
+          let iconFile: any;
 
           switch (route.name) {
             case "Home":
-              iconName = "home";
+              iconFile =
+                color === "#ffffff"
+                  ? require(`../assets/icons/house.png`)
+                  : require(`../assets/icons/house-dark.png`);
               break;
             case "Profile":
-              iconName = "person";
+              iconFile =
+                color === "#ffffff"
+                  ? require(`../assets/icons/user.png`)
+                  : require(`../assets/icons/user-dark.png`);
               break;
             case "Locations":
-              iconName = "location";
+              iconFile =
+                color === "#ffffff"
+                  ? require(`../assets/icons/pin.png`)
+                  : require(`../assets/icons/pin-dark.png`);
             default:
               break;
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Image style={iconStyle.icon} source={iconFile} />;
         },
         headerShown: false,
-        tabBarActiveTintColor: theme.colors.primary,
-        tabBarInactiveTintColor: theme.colors.secondary,
+        tabBarActiveTintColor: theme.colors.activeIcon,
+        tabBarInactiveTintColor: theme.colors.inactiveIcon,
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: theme.colors.card,
+          boxSizing: "border-box",
+          paddingTop: -1,
           width: "90%",
-          marginVertical: 12,
+          height: 48,
+          marginBottom: 24,
           marginHorizontal: "5%",
-          borderRadius: 22,
+          borderRadius: 16,
+          borderColor: theme.colors.inactiveIcon,
+          borderWidth: 1,
+          borderTopWidth: 1,
+          borderTopColor: theme.colors.inactiveIcon,
           position: "absolute",
           bottom: 8,
         },
