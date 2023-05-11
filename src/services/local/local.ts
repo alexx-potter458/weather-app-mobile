@@ -31,3 +31,7 @@ export const getActualLocation = async () => {
 export const setFavoriteLocation = async (value: string) => {
   return await AsyncStorage.setItem("location", value);
 };
+
+export const removeFavoriteLocation = async () => {
+  return await AsyncStorage.removeItem("location");
+};

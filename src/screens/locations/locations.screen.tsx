@@ -7,11 +7,23 @@ import { ThemeContext } from "../../utils/theme/theme.provider";
 import { locationsStyles } from "./locations.style";
 import { getWeather } from "../../services/api/weather.api";
 import { LocationRow } from "./components/location.row.component";
-import { setFavoriteLocation } from "../../services/local/local";
+import {
+  getActualLocation,
+  removeFavoriteLocation,
+  setFavoriteLocation,
+} from "../../services/local/local";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Routes } from "../../router/router.types";
 import { auth, db } from "../../utils/firebase";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { getWeatherImage } from "../../utils/constants.app";
 
 type LocationsProps = NativeStackScreenProps<Routes, "Locations">;
@@ -49,10 +61,34 @@ export const Locations = ({ navigation }: LocationsProps) => {
     if (searchField !== "")
       try {
         const data = await getWeather(searchField);
+        data.weather[0].image = getWeatherImage(data.weather[0].main);
         setSearchedLocation(data);
       } catch (err) {
         console.log(err);
       }
+  };
+
+  const onUnsetSearched = async () => {
+    setSearchedLocation(null);
+  };
+
+  const onUnsetFavourite = async (location: string) => {
+    if (location === (await getActualLocation()))
+      await removeFavoriteLocation();
+
+    let docId = "";
+
+    const locationsDocs = await getDocs(
+      query(collection(db, "Locations"), where("location", "==", location))
+    );
+
+    locationsDocs.forEach(async (doc) => {
+      docId = doc.id;
+    });
+
+    await deleteDoc(doc(db, "Locations", docId));
+
+    init();
   };
 
   const onSaveSearched = async () => {
@@ -104,6 +140,7 @@ export const Locations = ({ navigation }: LocationsProps) => {
           weather={searchedLocation}
           title="save"
           onAction={onSaveSearched}
+          onLongAction={onUnsetSearched}
         />
       ) : (
         <>
@@ -126,6 +163,7 @@ export const Locations = ({ navigation }: LocationsProps) => {
                 weather={item}
                 title="set"
                 onAction={onSaveFromFavorites}
+                onLongAction={onUnsetFavourite}
               />
             </>
           )}

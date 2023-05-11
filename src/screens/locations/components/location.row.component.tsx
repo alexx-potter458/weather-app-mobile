@@ -7,9 +7,15 @@ interface LocationProps {
   title: string;
   weather: any;
   onAction: (dbLocation: string) => void;
+  onLongAction: (dbLocation: string) => void;
 }
 
-export const LocationRow = ({ title, weather, onAction }: LocationProps) => {
+export const LocationRow = ({
+  title,
+  weather,
+  onAction,
+  onLongAction,
+}: LocationProps) => {
   const { theme } = useContext(ThemeContext);
   const styles = locationsStyles(theme);
   return (
@@ -19,6 +25,9 @@ export const LocationRow = ({ title, weather, onAction }: LocationProps) => {
           onAction(weather.dbName);
         }}
         style={styles.rowParent}
+        onLongPress={() => {
+          onLongAction(weather.dbName);
+        }}
       >
         <View style={styles.row}>
           <View>
@@ -39,7 +48,7 @@ export const LocationRow = ({ title, weather, onAction }: LocationProps) => {
             <Text style={styles.text}>{weather.weather[0].main}</Text>
           </View>
         </View>
-        <Text style={styles.textSecondary}>Tap to {title}</Text>
+        <Text style={styles.textSecondary}>Tap to {title} - Hold to unset</Text>
       </Pressable>
     </>
   );
