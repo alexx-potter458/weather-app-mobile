@@ -7,6 +7,7 @@ type ColorsKeys =
   | "background"
   | "text"
   | "card"
+  | "weatherCard"
   | "border"
   | "button"
   | "buttonText"
@@ -23,6 +24,7 @@ export const lightColors: ThemeColors = {
   background: "#f4ecf7",
   text: "#1F1D47",
   card: "#2e325d",
+  weatherCard: "#4b31a0",
   border: "#1b1b1f",
   button: "#48319D",
   buttonText: "#ffffff",
@@ -36,6 +38,7 @@ export const darkColors: ThemeColors = {
   inactiveIcon: "#a19eb7",
   error: "#ffb4ab",
   background: "#312b5b",
+  weatherCard: "#4b31a0",
   text: "#ffffff",
   card: "#231b40",
   border: "#fff",

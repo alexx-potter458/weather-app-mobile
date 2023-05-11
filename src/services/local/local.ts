@@ -24,6 +24,10 @@ export const getFavoriteLocation = async () => {
   return (await AsyncStorage.getItem("location")) ?? "Bucharest";
 };
 
+export const getActualLocation = async () => {
+  return (await AsyncStorage.getItem("location")) ?? "";
+};
+
 export const setFavoriteLocation = async (value: string) => {
   return await AsyncStorage.setItem("location", value);
 };

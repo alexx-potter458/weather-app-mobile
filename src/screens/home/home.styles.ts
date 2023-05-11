@@ -1,34 +1,38 @@
 import { StyleSheet } from "react-native";
 import { AppTheme } from "../../utils/theme/theme";
-
-export const hex2rgba = (hex: any, alpha = 1) => {
-  const [r, g, b] = hex.match(/\w\w/g).map((x: string) => parseInt(x, 16));
-  return `rgba(${r},${g},${b},${alpha})`;
-};
+import { hex2rgba } from "../../utils/constants.app";
 
 export const homeStyles = (theme: AppTheme) =>
   StyleSheet.create({
     container: {
-      width: "90%",
       boxSizing: "border-box",
       flex: 1,
-      marginHorizontal: "5%",
+      marginHorizontal: 24,
       marginTop: theme.spacing(4),
+    },
+    upButtons: {
+      marginHorizontal: 32,
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
     },
     city: {
       ...theme.typography.title,
+      color: theme.colors.buttonText,
       fontWeight: "300",
       fontSize: 32,
       textAlign: "center",
     },
     temp: {
       ...theme.typography.title,
+      color: theme.colors.buttonText,
       fontWeight: "300",
       fontSize: 72,
       textAlign: "center",
     },
     weatherType: {
       ...theme.typography.subtitle,
+      color: theme.colors.buttonText,
       textAlign: "center",
     },
     boxTitle: {
@@ -37,6 +41,7 @@ export const homeStyles = (theme: AppTheme) =>
     },
     boxValue: {
       ...theme.typography.subtitle,
+      color: theme.colors.buttonText,
     },
     weatherTypeImage: {
       width: 72,
@@ -45,6 +50,10 @@ export const homeStyles = (theme: AppTheme) =>
       objectFit: "contain",
       marginLeft: "auto",
       marginRight: "auto",
+    },
+    upButtonImage: {
+      width: 32,
+      height: 32,
     },
     background: {
       width: "100%",

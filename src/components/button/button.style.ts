@@ -4,10 +4,7 @@ import { StyleSheet } from "react-native";
 export const buttonStyle = (theme: AppTheme) =>
   StyleSheet.create({
     buttonStyle: {
-      borderWidth: 1,
-      borderStyle: "solid",
-      borderColor: theme.colors.button,
-      borderRadius: 22,
+      borderRadius: 12,
       paddingVertical: theme.spacing(2),
       backgroundColor: theme.colors.button,
     },

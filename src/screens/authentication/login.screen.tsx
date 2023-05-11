@@ -15,7 +15,7 @@ import { login } from "../../redux/user.slice";
 
 type LoginProps = NativeStackScreenProps<Routes, "Login">;
 export const Login = ({ navigation }: LoginProps) => {
-  const { theme, toggleThemeSchema } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const styles = authStyles(theme);
   const dispatch = useDispatch();
 
@@ -38,9 +38,7 @@ export const Login = ({ navigation }: LoginProps) => {
 
   return (
     <SafeAreaView style={styles.authContainer}>
-      <Text style={styles.title} onPress={() => toggleThemeSchema()}>
-        Sign in
-      </Text>
+      <Text style={styles.title}>Sign in</Text>
       <HorizontalSpace />
       <TextField placeholder="Email" onChangeText={setEmail} />
       <HorizontalSpace />

@@ -5,11 +5,12 @@ export const textFieldStyle = (theme: AppTheme) =>
   StyleSheet.create({
     inputField: {
       ...theme.typography.normalText,
+      backgroundColor: theme.colors.card,
       borderWidth: 1,
       borderStyle: "solid",
       borderColor: theme.colors.secondary,
-      borderRadius: 22,
-      paddingVertical: theme.spacing(1),
+      borderRadius: 12,
+      paddingVertical: theme.spacing(2),
       paddingHorizontal: theme.spacing(3),
     },
   });

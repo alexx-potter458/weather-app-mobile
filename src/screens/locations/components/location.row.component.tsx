@@ -1,43 +1,46 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../../utils/theme/theme.provider";
 import { locationsStyles } from "../locations.style";
-import { View, Text } from "react-native";
-import { Button } from "../../../components/button/button.component";
+import { View, Text, Image, Pressable } from "react-native";
 
 interface LocationProps {
   title: string;
-  temp: string;
-  type: string;
-  location: string;
-  dbLocation?: string;
+  weather: any;
   onAction: (dbLocation: string) => void;
 }
 
-export const LocationRow = ({
-  title,
-  temp,
-  location,
-  dbLocation = "",
-  type,
-  onAction,
-}: LocationProps) => {
+export const LocationRow = ({ title, weather, onAction }: LocationProps) => {
   const { theme } = useContext(ThemeContext);
   const styles = locationsStyles(theme);
   return (
     <>
-      <View style={styles.row}>
-        <View>
-          <Text style={styles.title}>{location}</Text>
-          <Text style={styles.text}>Weather: {type}</Text>
-          <Text style={styles.text}>Temperature: {temp}°</Text>
+      <Pressable
+        onPress={() => {
+          onAction(weather.dbName);
+        }}
+        style={styles.rowParent}
+      >
+        <View style={styles.row}>
+          <View>
+            <Text style={styles.weatherTemp}>{weather.main.temp}°</Text>
+            <Text style={styles.textSecondary}>
+              Feels like: {weather.main.feels_like}°
+            </Text>
+            <Text style={styles.text}>
+              {weather?.name}, {weather.sys.country}
+            </Text>
+          </View>
+
+          <View style={styles.rowSide}>
+            <Image
+              style={styles.weatherTypeImage}
+              source={weather.weather[0].image}
+            />
+            <Text style={styles.text}>{weather.weather[0].main}</Text>
+          </View>
         </View>
-        <Button
-          title={`  ${title}  `}
-          onPress={() => {
-            onAction(dbLocation);
-          }}
-        />
-      </View>
+        <Text style={styles.textSecondary}>Tap to {title}</Text>
+      </Pressable>
     </>
   );
 };

@@ -7,19 +7,19 @@ export type TypographyProps = { [key in TitleVariants]: TextStyle };
 
 const typography: TypographyProps = {
   title: {
-    fontSize: 22,
-    fontWeight: "700",
+    fontSize: 24,
+    fontWeight: "400",
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "400",
   },
   normalText: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: "400",
   },
   buttonText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "400",
   },
 };

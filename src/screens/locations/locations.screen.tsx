@@ -12,6 +12,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Routes } from "../../router/router.types";
 import { auth, db } from "../../utils/firebase";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { getWeatherImage } from "../../utils/constants.app";
 
 type LocationsProps = NativeStackScreenProps<Routes, "Locations">;
 export const Locations = ({ navigation }: LocationsProps) => {
@@ -33,6 +34,7 @@ export const Locations = ({ navigation }: LocationsProps) => {
     locationsDocs.forEach(async (doc) => {
       const resposnse = await getWeather(doc.data().location);
       resposnse.dbName = doc.data().location;
+      resposnse.weather[0].image = getWeatherImage(resposnse.weather[0].main);
 
       locations.push(resposnse);
       setSavedLocations(locations);
@@ -55,6 +57,18 @@ export const Locations = ({ navigation }: LocationsProps) => {
 
   const onSaveSearched = async () => {
     await setFavoriteLocation(searchField);
+
+    let alreadySaved = false;
+
+    savedLocations.forEach((element) => {
+      if (element.dbName === searchField) alreadySaved = true;
+    });
+
+    if (alreadySaved) {
+      navigation.navigate("Home");
+      return;
+    }
+
     try {
       await addDoc(collection(db, "Locations"), {
         location: searchField,
@@ -87,10 +101,8 @@ export const Locations = ({ navigation }: LocationsProps) => {
       <HorizontalSpace size={3} />
       {searchedLocation !== null ? (
         <LocationRow
-          type={searchedLocation.weather[0].main}
-          temp={searchedLocation.main.temp}
-          location={searchedLocation.name}
-          title="Save & set"
+          weather={searchedLocation}
+          title="save"
           onAction={onSaveSearched}
         />
       ) : (
@@ -99,21 +111,20 @@ export const Locations = ({ navigation }: LocationsProps) => {
         </>
       )}
       <HorizontalSpace size={3} />
-      <Text style={styles.title}>Saved locations</Text>
+      <Text style={styles.title2}>Saved locations</Text>
       <HorizontalSpace size={2} />
 
       {savedLocations.length > 0 ? (
         <FlatList
+          contentInset={{ bottom: 60 }}
           data={savedLocations}
+          ListFooterComponent={<HorizontalSpace size={6} />}
           renderItem={({ item }) => (
             <>
               <HorizontalSpace size={2} />
               <LocationRow
-                type={item.weather[0].main}
-                temp={item.main.temp}
-                location={item.name}
-                dbLocation={item.dbName}
-                title="Set"
+                weather={item}
+                title="set"
                 onAction={onSaveFromFavorites}
               />
             </>
