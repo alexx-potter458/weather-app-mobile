@@ -19,6 +19,7 @@ export default {
     },
     android: {
       package: "com.pottertech.weather_app_mobile",
+      versionCode: 1,
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#ffffff",
