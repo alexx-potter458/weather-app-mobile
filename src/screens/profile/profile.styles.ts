@@ -14,7 +14,7 @@ export const profileStyle = (theme: AppTheme) =>
     },
     usernameText: {
       ...theme.typography.subtitle,
-      color: theme.colors.buttonText,
+      color: theme.colors.primary,
     },
     emailText: {
       ...theme.typography.normalText,
@@ -28,7 +28,7 @@ export const profileStyle = (theme: AppTheme) =>
       padding: 16,
       backgroundColor: theme.colors.card,
       borderWidth: 2,
-      borderColor: theme.colors.weatherCard,
+      borderColor: theme.colors.card,
       borderRadius: 100,
     },
     profilePicture: {
@@ -38,7 +38,7 @@ export const profileStyle = (theme: AppTheme) =>
       marginRight: "auto",
     },
     userContainer: {
-      backgroundColor: theme.colors.weatherCard,
+      backgroundColor: theme.colors.card,
       borderRadius: 18,
       paddingVertical: 16,
       paddingHorizontal: 24,

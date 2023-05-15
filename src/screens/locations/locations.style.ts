@@ -14,16 +14,17 @@ export const locationsStyles = (theme: AppTheme) =>
     },
     weatherTemp: {
       ...theme.typography.title,
-      color: theme.colors.buttonText,
+      color: theme.colors.primary,
       fontSize: 46,
     },
     title2: {
       ...theme.typography.subtitle,
+      color: theme.colors.primary,
     },
     text: {
       ...theme.typography.normalText,
       marginBottom: theme.spacing(1),
-      color: theme.colors.buttonText,
+      color: theme.colors.primary,
     },
     textSecondary: {
       ...theme.typography.normalText,
@@ -31,11 +32,11 @@ export const locationsStyles = (theme: AppTheme) =>
     },
     textNoSearch: {
       ...theme.typography.normalText,
-      color: theme.colors.secondary,
+      color: theme.colors.ternary,
       textAlign: "center",
     },
     rowParent: {
-      backgroundColor: theme.colors.weatherCard,
+      backgroundColor: theme.colors.card,
       paddingVertical: 8,
       borderRadius: 22,
       display: "flex",
@@ -43,7 +44,6 @@ export const locationsStyles = (theme: AppTheme) =>
       alignItems: "center",
     },
     row: {
-      backgroundColor: theme.colors.weatherCard,
       paddingHorizontal: 16,
       width: "100%",
       borderRadius: 22,

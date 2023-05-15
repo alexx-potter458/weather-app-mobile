@@ -52,8 +52,6 @@ export const Main = () => {
           return <Image style={iconStyle.icon} source={iconFile} />;
         },
         headerShown: false,
-        tabBarActiveTintColor: theme.colors.activeIcon,
-        tabBarInactiveTintColor: theme.colors.inactiveIcon,
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: theme.colors.card,
@@ -63,10 +61,10 @@ export const Main = () => {
           marginBottom: 24,
           marginHorizontal: 24,
           borderRadius: 16,
-          borderColor: theme.colors.inactiveIcon,
+          borderColor: theme.colors.card,
           borderWidth: 1,
           borderTopWidth: 1,
-          borderTopColor: theme.colors.inactiveIcon,
+          borderTopColor: theme.colors.card,
           position: "absolute",
           bottom: 8,
         },

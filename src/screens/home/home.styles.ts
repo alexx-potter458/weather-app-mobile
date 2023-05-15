@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 import { AppTheme } from "../../utils/theme/theme";
-import { hex2rgba } from "../../utils/constants.app";
 
 export const homeStyles = (theme: AppTheme) =>
   StyleSheet.create({
@@ -11,28 +10,28 @@ export const homeStyles = (theme: AppTheme) =>
       marginTop: theme.spacing(4),
     },
     upButtons: {
-      marginHorizontal: 32,
+      marginHorizontal: 24,
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
+      alignItems: "center",
     },
     city: {
-      ...theme.typography.title,
-      color: theme.colors.buttonText,
-      fontWeight: "300",
-      fontSize: 32,
+      ...theme.typography.subtitle,
+      color: theme.colors.primary,
+      fontWeight: "700",
       textAlign: "center",
     },
     temp: {
       ...theme.typography.title,
-      color: theme.colors.buttonText,
-      fontWeight: "300",
-      fontSize: 72,
+      color: theme.colors.primary,
+      fontWeight: "800",
+      fontSize: 96,
       textAlign: "center",
     },
     weatherType: {
       ...theme.typography.subtitle,
-      color: theme.colors.buttonText,
+      color: theme.colors.primary,
       textAlign: "center",
     },
     boxTitle: {
@@ -41,7 +40,7 @@ export const homeStyles = (theme: AppTheme) =>
     },
     boxValue: {
       ...theme.typography.subtitle,
-      color: theme.colors.buttonText,
+      color: theme.colors.primary,
     },
     weatherTypeImage: {
       width: 72,
@@ -52,8 +51,12 @@ export const homeStyles = (theme: AppTheme) =>
       marginRight: "auto",
     },
     upButtonImage: {
-      width: 32,
-      height: 32,
+      width: 24,
+      height: 24,
+    },
+    boxImage: {
+      width: 28,
+      height: 28,
     },
     background: {
       width: "100%",
@@ -68,16 +71,20 @@ export const homeStyles = (theme: AppTheme) =>
       marginVertical: 10,
       display: "flex",
       flexDirection: "row",
-    },
-
-    boxDetails: {
-      backgroundColor: hex2rgba(theme.colors.card, 0.6),
-      minHeight: 110,
-      flex: 1,
+      backgroundColor: theme.colors.card,
       borderRadius: 16,
-      borderColor: theme.colors.inactiveIcon,
-      borderWidth: 2,
-      paddingVertical: 8,
+    },
+    topAction: {
+      backgroundColor: theme.colors.card,
+      padding: 8,
+      borderRadius: 12,
+    },
+    boxDetails: {
+      minHeight: 110,
+      justifyContent: "center",
+      alignItems: "center",
+      flex: 1,
+      paddingVertical: 2,
       paddingHorizontal: 12,
     },
   });

@@ -30,15 +30,15 @@ export const typographyWithColor = (colors: ThemeColors) => ({
     ...typography.title,
   },
   subtitle: {
-    color: colors.text,
+    color: colors.ternary,
     ...typography.subtitle,
   },
   normalText: {
-    color: colors.text,
+    color: colors.ternary,
     ...typography.normalText,
   },
   buttonText: {
-    color: colors.buttonText,
+    color: colors.primary,
     ...typography.buttonText,
   },
 });

@@ -6,7 +6,7 @@ export const buttonStyle = (theme: AppTheme) =>
     buttonStyle: {
       borderRadius: 12,
       paddingVertical: theme.spacing(2),
-      backgroundColor: theme.colors.button,
+      backgroundColor: theme.colors.card,
     },
     textStyle: {
       ...theme.typography.buttonText,
