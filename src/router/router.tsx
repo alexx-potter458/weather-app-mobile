@@ -25,7 +25,7 @@ export const Router = () => {
   });
 
   return (
-    <NavigationContainer theme={theme}>
+    <NavigationContainer theme={theme as any}>
       <StatusBar
         barStyle={theme.dark ? "light-content" : "dark-content"}
         backgroundColor={theme.colors.background}
