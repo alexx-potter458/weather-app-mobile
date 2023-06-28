@@ -22,8 +22,6 @@ export const Register = ({ navigation }: RegisterProps) => {
   const [passwordAgain, setPasswordAgain] = useState("");
 
   const onRegister = async () => {
-    console.log(email, password, passwordAgain);
-
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       Alert.alert("Invalid e-mail!");
       return;
