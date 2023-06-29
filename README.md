@@ -45,4 +45,14 @@ In orderd to start it just run:
 ⚡ npm run ios
 ```
 
+In orderd to build the app :
+
+```
+🗃️  manually put the variables from .env directly to app.config.js
+
+⚡ eas build -p android --profile preview
+
+🗃️  get the apk from the provided link
+```
+
 ## 🏁 That was it! 🎉
