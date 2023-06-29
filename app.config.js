@@ -29,13 +29,14 @@ export default {
       favicon: "./assets/favicon.png",
     },
     extra: {
-      apiKey: process.env.API_KEY,
-      authDomain: process.env.AUTH_DOMAIN,
-      productId: process.env.PRODUCT_ID,
-      storageBucket: process.env.STORAGE_BUCKET,
-      messagingSenderId: process.env.MESSAGING_SENDER_ID,
-      appId: process.env.APP_ID,
-      weatherApi: process.env.WEATHER_API_ID,
+      apiKey: "AIzaSyBKTW4sdYg96RWdnRgCBwOuEq3_HwBxcOQ",
+      authDomain:
+        "249840890762-okr760g1lv23uvr1qhl4htsds4ii5rqh.apps.googleusercontent.com",
+      productId: "potter-weather-app-mobile",
+      storageBucket: "potter-weather-app-mobile.appspot.com",
+      messagingSenderId: "249840890762",
+      appId: "1:249840890762:android:a2e79eb8e0f2f409658e73",
+      weatherApi: "ea69b6747afd51e1c513c0b4ed8206c4",
       eas: {
         projectId: "f4a7849b-a018-431b-8f44-70a4fb3d210d",
       },
