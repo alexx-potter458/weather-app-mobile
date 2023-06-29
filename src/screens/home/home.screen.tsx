@@ -28,7 +28,7 @@ export const Home = () => {
 
   function getHours(value: number) {
     let date = new Date(value * 1000);
-    date.setHours(date.getHours() + 3);
+    date.setHours(date.getHours());
 
     return date.toLocaleTimeString("RO-ro", {
       hour: "2-digit",
