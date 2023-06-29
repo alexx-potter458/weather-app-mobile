@@ -7,15 +7,20 @@ import { ThemeContext } from "../../utils/theme/theme.provider";
 import { TextField } from "../../components/textfield/textfield.component";
 import { Button } from "../../components/button/button.component";
 import { HorizontalSpace } from "../../components/horizontal-space/horizontal-space.component";
-import { createUserWithEmailAndPassword } from "firebase/auth/react-native";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth/react-native";
 import { auth } from "../../utils/firebase";
 import { setUserEmail } from "../../services/local/local";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/user.slice";
 
 type RegisterProps = NativeStackScreenProps<Routes, "Register">;
 export const Register = ({ navigation }: RegisterProps) => {
   const { theme, toggleThemeSchema } = useContext(ThemeContext);
   const styles = authStyles(theme);
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,6 +85,3 @@ export const Register = ({ navigation }: RegisterProps) => {
     </SafeAreaView>
   );
 };
-function dispatch(arg0: any) {
-  throw new Error("Function not implemented.");
-}
