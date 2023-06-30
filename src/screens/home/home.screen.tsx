@@ -137,7 +137,7 @@ export const Home = () => {
               />
               <HorizontalSpace size={2} />
 
-              <Text style={styles.boxValue}>{weather.main.humidity}km/h</Text>
+              <Text style={styles.boxValue}>{weather.wind.speed} km/h</Text>
               <Text style={styles.boxTitle}>Wind</Text>
             </View>
 
